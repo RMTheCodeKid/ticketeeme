@@ -4,12 +4,15 @@ Feature: Viewing tickets
   I want to see them on the project's page
 
   Background:
-    Given there is a project called "TextMate 2"
-    And that project has a ticket:
+    Given there are the following users:
+    |email| password|
+    |user@ticketeeme.com | password|
+    And there is a project called "TextMate 2"
+    And "user@ticketeeme.com" has created a ticket for this project:
       |title   |description |
       |Make it shiny! | Gradients! Starbursts! Oh my! |
     And there is a project called "Internet Explorer"
-    And that project has a ticket:
+    And "user@ticketeeme.com" has created a ticket for this project:
       | title                | description   |
       | Standards compliance | Isn't a joke. |
     And I am on the homepage
@@ -21,7 +24,7 @@ Feature: Viewing tickets
     When I follow "Make it shiny!"
     Then I should see "Make it shiny" within "#ticket h2"
     And I should see "Gradients! Starbursts! Oh my!"
-  
+
     When I follow "Ticketeeme"
     And I follow "Internet Explorer"
     Then I should see "Standards compliance"
