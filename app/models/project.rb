@@ -8,8 +8,11 @@ class Project < ActiveRecord::Base
     joins(:permissions).where(:permissions => { :action => "view",
                                                 :user_id => user.id })
   }
-  
+
 
   attr_accessible :name
 
+  def self.for(user)
+    user.admin? ? Project : Project.readable_by(user)
+  end
 end
