@@ -9,12 +9,13 @@ Feature: Creating Tickets
       | email             | password |
       | user@ticketeeme.com | password |
     And "user@ticketeeme.com" can view the "Internet Explorer" project
+    And "user@ticketeeme.com" can create tickets in the "Internet Explorer" project
     And I am signed in as them
     And I am on the homepage
     When I follow "Internet Explorer"
     And I follow "New Ticket"
 
-  Scenario: Creating a ticket
+  Scenario: Creating a ticket 
     When I fill in "Title" with "Non-standards compliance"
     And I fill in "Description" with "My pages are ugly!"
     And I press "Create Ticket"
