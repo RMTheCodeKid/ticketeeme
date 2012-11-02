@@ -6,8 +6,8 @@ class Ticket < ActiveRecord::Base
   validates :description, :presence => true,
                           :length => {:minimum => 10}
 
-  attr_accessible :description, :title, :user
+  attr_accessible :description, :title, :user, :asset
 
-
+  has_attached_file :asset
 
 end
